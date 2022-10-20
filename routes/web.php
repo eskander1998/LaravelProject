@@ -2,6 +2,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvenementController;
+use App\Http\Controllers\BaladeController;
+use App\Http\Controllers\ParticipantController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +45,30 @@ Route::get('/evenement/edit/{id}',[EvenementController::class,'edit']);
 Route::put('/evenement/update/{id}',[EvenementController::class,'update']);
 
 
+
+
+Route::get('/balade/all', [BaladeController::class, 'AllBalade'])->name('all.balade');
+
+Route::post('/balade/add', [BaladeController::class, 'AddBalade'])->name('store.balade');
+Route::get('/balade/create', function () {
+    return view('Balade.BackOffice.AddBalade');
+});
+Route::delete('/balade/delete/{id}',[BaladeController::class,'destroy']);
+
+Route::get('/balade/edit/{id}',[BaladeController::class,'edit']);
+Route::put('/balade/update/{id}',[BaladeController::class,'update']);
+
+
+
+Route::get('/participant/all', [ParticipantController::class, 'AllParticipant'])->name('all.participant');
+
+Route::post('/participant/add', [ParticipantController::class, 'AddParticipant'])->name('store.participant');
+Route::get('/participant/create', [ParticipantController::class, 'createParticipant']);
+
+
+
+Route::delete('/participant/delete/{id}',[ParticipantController::class,'destroy']);
+
+Route::get('/participant/edit/{id}',[ParticipantController::class,'edit']);
+Route::put('/participant/update/{id}',[ParticipantController::class,'update']);
 

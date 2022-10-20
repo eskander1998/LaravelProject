@@ -55,6 +55,22 @@
            </a>
                </li>
 
+               <li class="@if ($activePage == 'balade') active @endif">
+        <a href="{{ route('all.balade','balade') }}">
+          <i class="now-ui-icons education_atom"></i>
+          <p>{{ __('Balade') }}</p>
+
+           </a>
+               </li>
+
+               <li class="@if ($activePage == 'participant') active @endif">
+        <a href="{{ route('all.participant','participant') }}">
+          <i class="now-ui-icons education_atom"></i>
+          <p>{{ __('Participant') }}</p>
+
+           </a>
+               </li>
+
           </ul>
         </div>
       <li class="@if ($activePage == 'icons') active @endif">
